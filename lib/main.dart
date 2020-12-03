@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(BullsEyeApp());
 }
 
-class MyApp extends StatelessWidget {
+class BullsEyeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BullsEye',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: GamePage(
+        title: 'BullsEye',
+      ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class GamePage extends StatefulWidget {
+  final String title;
+
+  const GamePage({Key key, this.title}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _GamePageState createState() => _GamePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
