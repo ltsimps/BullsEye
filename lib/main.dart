@@ -36,9 +36,21 @@ class _GamePageState extends State<GamePage> {
       appBar: AppBar(),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Hello BullyEye',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
+              ),
+              FlatButton(
+                onPressed: () {},
+                child: Text(
+                  'Hit Me!',
+                  style: TextStyle(color: Colors.blue),
+                ),
+              )
+            ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
