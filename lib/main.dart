@@ -1,3 +1,4 @@
+import 'package:bullseye/prompt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -43,11 +44,7 @@ class _GamePageState extends State<GamePage> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'Hello BullyEye',
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
-              ),
+              Prompt(targetValue: 100),
               FlatButton(
                 onPressed: () {
                   this._alertIsVisible = true;
