@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(BullsEyeApp());
@@ -7,6 +8,8 @@ void main() {
 class BullsEyeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
     return MaterialApp(
       title: 'BullsEye',
       theme: ThemeData(
@@ -56,12 +59,6 @@ class _GamePageState extends State<GamePage> {
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
-              FlatButton(
-                onPressed: () {
-                  _showKnockKnock(context);
-                },
-                child: Text("Knock Knock"),
-              )
             ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
@@ -87,27 +84,6 @@ class _GamePageState extends State<GamePage> {
               okButton,
             ],
             elevation: 5,
-          );
-        });
-  }
-
-  void _showKnockKnock(BuildContext context) {
-    Widget joke = FlatButton(
-      child: Text("Bad Joke I'm out "),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
-
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Whos There?"),
-            content: Text('You Dummy'),
-            actions: [
-              joke,
-            ],
           );
         });
   }
