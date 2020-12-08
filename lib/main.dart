@@ -1,4 +1,5 @@
 import 'package:bullseye/prompt.dart';
+import 'package:bullseye/score.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -59,29 +60,7 @@ class _GamePageState extends State<GamePage> {
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FlatButton(onPressed: () {}, child: Text("Start")),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Score"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("9999"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("Round"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text("999"),
-                  ),
-                  FlatButton(onPressed: () {}, child: Text("info"))
-                ],
-              )
+              Score(),
             ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
