@@ -2,6 +2,8 @@ import 'package:bullseye/prompt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'control.dart';
+
 void main() {
   runApp(BullsEyeApp());
 }
@@ -56,6 +58,7 @@ class _GamePageState extends State<GamePage> {
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
+              Control(),
             ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
