@@ -12,12 +12,12 @@ class _ControlState extends State<Control> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("1"),
-          Slider(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("1"),
+        Expanded(
+          child: Slider(
             value: _currentValue,
             onChanged: (newValue) {
               setState(() {
@@ -27,9 +27,9 @@ class _ControlState extends State<Control> {
             min: 1,
             max: 100,
           ),
-          Text("100"),
-        ],
-      ),
+        ),
+        Text("100"),
+      ],
     );
   }
 }
