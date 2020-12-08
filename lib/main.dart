@@ -47,6 +47,7 @@ class _GamePageState extends State<GamePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Prompt(targetValue: 100),
+              Control(),
               FlatButton(
                 onPressed: () {
                   this._alertIsVisible = true;
@@ -58,7 +59,29 @@ class _GamePageState extends State<GamePage> {
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
-              Control(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FlatButton(onPressed: () {}, child: Text("Start")),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Score"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("9999"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Round"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("999"),
+                  ),
+                  FlatButton(onPressed: () {}, child: Text("info"))
+                ],
+              )
             ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
