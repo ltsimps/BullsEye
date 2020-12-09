@@ -1,3 +1,4 @@
+import 'package:bullseye/game_model.dart';
 import 'package:bullseye/prompt.dart';
 import 'package:bullseye/score.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,13 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   bool _alertIsVisible = false;
+  GameModel _model;
+
+  @override
+  void initState() {
+    super.initState();
+    _model = GameModel(60);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +55,10 @@ class _GamePageState extends State<GamePage> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Prompt(targetValue: 100),
-              Control(),
+              Prompt(targetValue: _model.target),
+              Control(
+                model: _model,
+              ),
               FlatButton(
                 onPressed: () {
                   this._alertIsVisible = true;
@@ -60,7 +70,10 @@ class _GamePageState extends State<GamePage> {
                   style: TextStyle(color: Colors.blue),
                 ),
               ),
-              Score(),
+              Score(
+                totalScore: _model.totalScore,
+                round: _model.round,
+              ),
             ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
@@ -81,7 +94,7 @@ class _GamePageState extends State<GamePage> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Hello There!"),
-            content: Text("This is my first pop-up."),
+            content: Text("The slider value is ${_model.current}"),
             actions: <Widget>[
               okButton,
             ],

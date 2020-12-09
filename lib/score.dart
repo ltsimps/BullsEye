@@ -1,7 +1,10 @@
 import "package:flutter/material.dart";
 
 class Score extends StatelessWidget {
-  const Score({Key key}) : super(key: key);
+  final int totalScore;
+  final int round;
+
+  const Score({Key key, this.totalScore, this.round}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class Score extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("9999"),
+            child: Text("$totalScore"),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -24,7 +27,7 @@ class Score extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("999"),
+            child: Text("$round"),
           ),
           FlatButton(onPressed: () {}, child: Text("info"))
         ],
