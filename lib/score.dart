@@ -1,3 +1,4 @@
+import 'package:bullseye/textstyles.dart';
 import "package:flutter/material.dart";
 
 class Score extends StatelessWidget {
@@ -22,19 +23,31 @@ class Score extends StatelessWidget {
               child: Text("Start Over")),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Score"),
+            child: Text(
+              "Score",
+              style: LabelTextStyle.bodyText1(context),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("$totalScore"),
+            child: Text(
+              "$totalScore",
+              style: ScoreNumberTextStyle.headline4(context),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Round"),
+            child: Text(
+              "Round",
+              style: LabelTextStyle.bodyText1(context),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("$round"),
+            child: Text(
+              "$round",
+              style: ScoreNumberTextStyle.headline4(context),
+            ),
           ),
           FlatButton(onPressed: () {}, child: Text("info"))
         ],
