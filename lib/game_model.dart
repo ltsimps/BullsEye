@@ -3,7 +3,8 @@ class GameModel {
   static const SCORE_START = 0;
   static const ROUND_START = 1;
 
-  GameModel([this.target, this.current, this.totalScore, this.round]);
+  GameModel(
+      [this.target, this.current = 0, this.totalScore = 0, this.round = 0]);
 
   int target;
   int current;

@@ -63,6 +63,7 @@ class _GamePageState extends State<GamePage> {
                 onPressed: () {
                   this._alertIsVisible = true;
                   _showAlert(context);
+                  setState(() {});
                   print(" You win ?");
                 },
                 child: Text(
@@ -85,7 +86,13 @@ class _GamePageState extends State<GamePage> {
   int _pointsForCurrentRound() {
     int maxPoints = 100;
     int difference = (_model.target - _sliderValue()).abs();
-    return maxPoints - difference;
+    int pointsForThisRound = maxPoints - difference;
+    _updateTotalScore(pointsForThisRound);
+    return pointsForThisRound;
+  }
+
+  void _updateTotalScore(points) {
+    _model.totalScore += points;
   }
 
   void _showAlert(BuildContext context) {
