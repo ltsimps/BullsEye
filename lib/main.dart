@@ -46,7 +46,7 @@ class _GamePageState extends State<GamePage> {
   @override
   void initState() {
     super.initState();
-    _model = GameModel(60);
+    _model = GameModel(_newTargetValue());
   }
 
   @override
@@ -63,7 +63,7 @@ class _GamePageState extends State<GamePage> {
               ),
               FlatButton(
                 onPressed: () {
-                  this._alertIsVisible = true;
+                  _alertIsVisible = true;
                   _showAlert(context);
                 },
                 child: Text(
@@ -74,6 +74,7 @@ class _GamePageState extends State<GamePage> {
               Score(
                 totalScore: _model.totalScore,
                 round: _model.round,
+                onStartOver: _startNewGame,
               ),
             ]),
       ),
@@ -82,17 +83,30 @@ class _GamePageState extends State<GamePage> {
   }
 
   void _nextRound() {
-    _model.target = Random().nextInt(100) + 1;
+    _model.target = _newTargetValue();
     _model.round += 1;
   }
 
   int _sliderValue() => _model.current;
+  int _newTargetValue() => Random().nextInt(100) + 1;
+
+  void _startNewGame() {
+    setState(() {
+      _model.totalScore = GameModel.SCORE_START;
+      _model.round = GameModel.ROUND_START;
+      _model.target = _newTargetValue();
+      _model.current = GameModel.SLIDER_START;
+    });
+  }
 
   int _pointsForCurrentRound() {
+    bool gotMaxPoints = false;
     int maxPoints = 100;
     int difference = (_model.target - _sliderValue()).abs();
+    if (difference == 0) gotMaxPoints = true;
     int pointsForThisRound = maxPoints - difference;
-    return pointsForThisRound;
+
+    return gotMaxPoints ? pointsForThisRound + 100 : pointsForThisRound;
   }
 
   void _showAlert(BuildContext context) {
