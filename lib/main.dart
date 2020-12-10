@@ -80,6 +80,10 @@ class _GamePageState extends State<GamePage> {
     );
   }
 
+  int _pointsForCurrentRound() {
+    return 100 - (_model.target - _model.current);
+  }
+
   void _showAlert(BuildContext context) {
     Widget okButton = FlatButton(
         child: Text('Awesome'),
@@ -94,7 +98,8 @@ class _GamePageState extends State<GamePage> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Hello There!"),
-            content: Text("The slider value is ${_model.current}"),
+            content: Text(
+                "The slider value is ${_model.current}  \nYou scored  ${_pointsForCurrentRound()} points this round"),
             actions: <Widget>[
               okButton,
             ],
