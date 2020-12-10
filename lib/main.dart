@@ -80,8 +80,12 @@ class _GamePageState extends State<GamePage> {
     );
   }
 
+  int _sliderValue() => _model.current;
+
   int _pointsForCurrentRound() {
-    return 100 - (_model.target - _model.current);
+    int maxPoints = 100;
+    int difference = (_model.target - _sliderValue()).abs();
+    return maxPoints - difference;
   }
 
   void _showAlert(BuildContext context) {
@@ -99,7 +103,7 @@ class _GamePageState extends State<GamePage> {
           return AlertDialog(
             title: Text("Hello There!"),
             content: Text(
-                "The slider value is ${_model.current}  \nYou scored  ${_pointsForCurrentRound()} points this round"),
+                "The slider value is ${_sliderValue()}  \nYou scored  ${_pointsForCurrentRound()} points this round"),
             actions: <Widget>[
               okButton,
             ],
