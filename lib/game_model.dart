@@ -4,7 +4,7 @@ class GameModel {
   static const ROUND_START = 1;
 
   GameModel(
-      [this.target, this.current = 0, this.totalScore = 0, this.round = 0]);
+      [this.target, this.current = 20, this.totalScore = 0, this.round = 0]);
 
   int target;
   int current;
